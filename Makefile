@@ -10,6 +10,7 @@ SRCS := main.c\
 	nBezier.c\
 	inputs.c\
 	textinfo.c\
+	output.c\
 
 OBJ_DIR = objs
 OBJ := ${addprefix ${OBJ_DIR}/, ${SRCS:.c=.o}}

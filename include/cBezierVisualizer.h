@@ -1,5 +1,7 @@
 #include "../termGL/include/termGL.h"
 
+#include <fcntl.h>
+
 #ifndef C_BEZIER_VISUALIZER
 # define C_BEZIER_VISUALIZER
 
@@ -30,4 +32,6 @@ void	inputHandler(char keycode, void *v_context);
 
 void	displayGeneralInfo(Context *context, TermGL termGL);
 void	displayPointInfo(Context *context, TermGL termGL);
+
+void	generateOutput(const char *filename, Context *context);
 #endif
