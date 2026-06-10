@@ -22,8 +22,13 @@ void	renderFrame(Context *context, TermGL termGL)
 	displayPointInfo(context, termGL);
 }
 
-int main(void)
+int main(int argc, char **argv)
 {
+	Parsed parsed;
+
+	if (parse(argc, argv, &parsed))
+		return (1);
+
 	TermGL	termGL = termGLInit(100, 100);
 	Context context = {
 		.control_points = calloc(2, sizeof(fVec3)),
@@ -42,7 +47,7 @@ int main(void)
 		renderDisplay(termGL);
 	}
 
-	generateOutput("temp", &context);
+	generateOutput(parsed.filename, &context);
 
 	free(context.control_points);
 	termGLDestroy(termGL);

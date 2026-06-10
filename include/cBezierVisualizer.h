@@ -5,6 +5,13 @@
 #ifndef C_BEZIER_VISUALIZER
 # define C_BEZIER_VISUALIZER
 
+# define DEFAULT_FILENAME	"output"
+typedef struct {
+	char *filename;
+}	Parsed;
+
+int	parse(int argc, char **argv, Parsed *output);
+
 # define STARTING_MOVE_RESOLUTION 0.01f
 # define MIN_MOVE_RESOLUTION 0.0001f
 # define MAX_MOVE_RESOLUTION 1.0f
