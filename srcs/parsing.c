@@ -36,12 +36,12 @@ static int	setUniformScale(int argc, char **argv, int *argv_i, Parsed *output)
 static int	setScale(int argc, char **argv, int *argv_i, int *output, char opt)
 {
 	if (*argv_i + 1 >= argc)
-		return (printf("%s: missing scale. Usage : %s -%c <number>.\n", argv[0], opt, argv[0]), 1);
+		return (printf("%s: missing scale. Usage : %s -%c <number>.\n", argv[0], argv[0], opt), 1);
 
 	const int scale = atoi(argv[*argv_i + 1]);
 
 	if (!scale)
-		return (printf("%s: missing or invalid scale. Usage : %s -%c <number>.\n", argv[0], opt, argv[0]), 1);
+		return (printf("%s: missing or invalid scale. Usage : %s -%c <number>.\n", argv[0], argv[0], opt), 1);
 	*output = scale;
 	*argv_i = *argv_i + 1;
 	return (0);

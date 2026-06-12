@@ -1,9 +1,9 @@
 #include "../include/cBezierVisualizer.h"
 
-static void	outputHeader(const int fd, Parsed *parsed, Context *context)
+static void	outputHeader(const int fd, Context *context)
 {
 	dprintf(fd,
-		"bezier curve created by cBezierVisualizer.\n"
+		"bezier curve created by bezierEV.\n"
 		"%d control points\n"
 		"%d curve points (%.4f fixed interpolation interval)\n"
 		, context->control_point_count, context->curve_point_count, context->curve_resolution);
@@ -42,7 +42,7 @@ void	generateOutput(Parsed *parsed, Context *context)
 
 	if (fd < 0)
 		return (printf("error: could not create or open %s\n", parsed->filename), (void)0);
-	outputHeader(fd, parsed, context);
+	outputHeader(fd, context);
 	outputControlPoint(fd, parsed->scale, context);
 	outputCurve(fd, parsed->scale, context);
 	close(fd);
