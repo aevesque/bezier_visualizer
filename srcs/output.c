@@ -29,7 +29,7 @@ static void	outputCurve(const int fd, const int *scale, Context *context)
 
 void	generateOutput(Parsed *parsed, Context *context)
 {
-	int	fd = open(parsed->filename, O_CREAT | O_WRONLY, 00644);
+	int	fd = open(parsed->filename, O_CREAT | O_TRUNC | O_WRONLY , 00644);
 
 	if (fd < 0)
 		return (printf("error: could not create or open %s\n", parsed->filename), (void)0);
